@@ -1,5 +1,5 @@
 # The public documentation URL, used for sitemap.xml
-url: "http://docs.telerik.com/kendo-ui"
+url: "http://majorsilence.github.io/kendo-ui-core"
 
 # Exclude files which should not be in the output
 exclude: [readme.md, Gemfile, Gemfile.lock,api_sort.rb]
@@ -358,4 +358,4 @@ assets:
 
 ## Do not edit below this line
 safe: false
-markdown: MarkdownProcessor
+markdown: kramdown
