@@ -122,6 +122,41 @@ configure_nginx()
 }
 
 
+configurefirewall()
+{
+	yes | ufw enable
+	ufw allow 80/tcp
+	ufw allow 8080/tcp
+	yes | ufw allow ssh
+
+
+	iptables -A INPUT -i eth0 -p tcp --dport 80 -j ACCEPT
+	iptables -A INPUT -i eth0 -p tcp --dport 4000 -j ACCEPT
+	iptables -A PREROUTING -t nat -i eth0 -p tcp --dport 80 -j REDIRECT --to-port 4000
+
+	# requires iptables-persistent is installed
+	# See http://www.thomas-krenn.com/en/wiki/Saving_Iptables_Firewall_Rules_Permanently
+	echo iptables-persistent iptables-persistent/autosave_v4 boolean true | debconf-set-selections
+	echo iptables-persistent iptables-persistent/autosave_v6 boolean true | debconf-set-selections
+	apt-get install -y iptables-persistent
+	iptables-save > /etc/iptables/rules.v4
+
+	/var/lib/dpkg/info/iptables-persistent.postinst;
+}
+
+configurefail2ban()
+{
+	# fail2ban - protect ssh
+	# See https://www.digitalocean.com/community/articles/how-to-protect-ssh-with-fail2ban-on-ubuntu-12-04 if you want to make any edits to the config
+	apt-get install -y fail2ban
+	rm -rf /etc/fail2ban/jail.local
+	cp /etc/fail2ban/jail.conf /etc/fail2ban/jail.local
+
+	service fail2ban restart
+}
+
+configurefirewall
+configurefail2ban
 base_system
 configure_nginx_basic
 configure_nginx
