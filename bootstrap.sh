@@ -58,6 +58,9 @@ function jekyll_hook()
 	sed -i "s/site=\"\/usr\/share\/nginx\/html\/\$repo\"/site=\"\/var\/www\/$SITEURL\"/g" /root/jekyll-hook/scripts/publish.sh
 	forever start jekyll-hook.js
 
+
+    # cp -R /documentation /root/tmp/documentation
+	# jekyll build --source /root/tmp/documentation --destination /var/www/documentation.majorsilence.com
 }
 
 
