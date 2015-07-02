@@ -11,6 +11,8 @@ navigation:
     "highlight":
         title: "Feature High Lights"
         position: 2
+    "*highlighthighlight1":
+        title: "Hight lIght 1"
 
 ## The application virtual path
 baseurl: 
