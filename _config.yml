@@ -348,8 +348,8 @@ type_links:
 # "foo": "Bar"
 
 # The google services configuration
-google_tag_manager: GTM-6X92
-google_custom_search: '001595215763381649090:eblhnfskwrk'
+google_tag_manager: 
+google_custom_search: ''
 
 # Assets pipeline configuration
 assets:
