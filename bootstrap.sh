@@ -10,10 +10,10 @@ SITEURL="documentation.majorsilence.com"
 
 function base_system()
 {
-	apt-get install ruby ruby-dev make build-essential npm nodejs git nginx zlib1g-dev -y
+	apt-get install ruby2.0 ruby2.0-dev make build-essential npm nodejs git nginx zlib1g-dev -y
 
 	echo "start gem install.  This will take several minutes."
-	yes | gem install jekyll github-pages rdiscount json --no-rdoc --no-ri --verbose
+	yes | gem2.0 install jekyll github-pages rdiscount json --no-rdoc --no-ri --verbose
 	echo "end gem install"
 }
 
