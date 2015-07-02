@@ -359,3 +359,4 @@ assets:
 ## Do not edit below this line
 safe: false
 markdown: kramdown
+    input: GFM
