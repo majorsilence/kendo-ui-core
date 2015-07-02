@@ -6,7 +6,7 @@ set -u # exit on using unset variable
 
 apt-get update
 apt-get upgrade -y
-SITEURL="documentation.majorsilence.com"
+SITEURL="documentation.townsuite.com"
 
 function base_system()
 {
