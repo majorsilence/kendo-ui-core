@@ -33,8 +33,6 @@ defaults:
 
 
 type_links:
-    "kendo.Class": "/api/javascript/class"
-    "kendo.data.DataSource": "/api/javascript/data/datasource"
     "Array": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array"
     "Boolean": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean"
     "Function": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function"
