@@ -71,7 +71,9 @@ configure_nginx()
 	echo "	root /var/www/$SITEURL/;" >> /etc/nginx/sites-enabled/default
 	echo "	index index.html index.htm;" >> /etc/nginx/sites-enabled/default
 	echo "	server_name $SITEURL www.$SITEURL;" >> /etc/nginx/sites-enabled/default
-	echo "	rewrite        ^ https://\$server_name\$request_uri? permanent;" >> /etc/nginx/sites-enabled/default
+	
+	# The line below will auto redirect to https
+	#echo "	rewrite        ^ https://\$server_name\$request_uri? permanent;" >> /etc/nginx/sites-enabled/default
 	echo "	location / {" >> /etc/nginx/sites-enabled/default
 	echo "		root /var/www/$SITEURL/;" >> /etc/nginx/sites-enabled/default
 	echo "		index index.html index.htm;" >> /etc/nginx/sites-enabled/default
