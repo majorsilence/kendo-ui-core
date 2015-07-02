@@ -23,33 +23,57 @@ function jekyll_hook()
 	ln -s /usr/bin/nodejs /usr/bin/node
 	npm install -g forever
 
+
+	cd /root
 	git clone https://github.com/developmentseed/jekyll-hook.git
 	cd jekyll-hook
 	npm install
+
+
+	> /root/jekyll-hook/config.json
+	echo "{" >> /root/jekyll-hook/config.json
+	echo "    \"gh_server\": \"github.com\"," >> /root/jekyll-hook/config.json
+	echo "    \"temp\": \"/root/jekyll-hook-temp\"," >> /root/jekyll-hook/config.json
+	echo "    \"public_repo\": true," >> /root/jekyll-hook/config.json
+	echo "    \"scripts\": {" >> /root/jekyll-hook/config.json
+	echo "      \"#default\": {" >> /root/jekyll-hook/config.json
+	echo "        \"build\": \"./scripts/build.sh\"," >> /root/jekyll-hook/config.json
+	echo "        \"publish\": \"./scripts/publish.sh\"" >> /root/jekyll-hook/config.json
+	echo "      }" >> /root/jekyll-hook/config.json
+	echo "    }," >> /root/jekyll-hook/config.json
+	echo "    \"secret\": \"\"," >> /root/jekyll-hook/config.json
+	echo "    \"email\": {" >> /root/jekyll-hook/config.json
+	echo "        \"isActivated\": false," >> /root/jekyll-hook/config.json
+	echo "        \"user\": \"\"," >> /root/jekyll-hook/config.json
+	echo "        \"password\": \"\"," >> /root/jekyll-hook/config.json
+	echo "        \"host\": \"\"," >> /root/jekyll-hook/config.json
+	echo "        \"ssl\": true" >> /root/jekyll-hook/config.json
+	echo "    }," >> /root/jekyll-hook/config.json
+	echo "    \"accounts\": [" >> /root/jekyll-hook/config.json
+	echo "        \"developmentseed\"" >> /root/jekyll-hook/config.json
+	echo "    ]" >> /root/jekyll-hook/config.json
+	echo "}" >> /root/jekyll-hook/config.json
+
+
+	sed -i "s/site=\"\/usr\/share\/nginx\/html\/\$repo\"/site=\"\/var\/www\/$SITEURL\"/g" /root/jekyll-hook/scripts/publish.sh
+	forever start jekyll-hook.js
+
 }
 
 
 configure_nginx_basic()
 {
 
-	if [ ! -d "/var/www/$SITEURL" ]; then
-		rm -rf /var/www
+	if [ ! -d "/var/www" ]; then
 		mkdir /var/www
 	fi
 
-	
-	if [ -d "/documentation" ]; then
-  		# running on local vagrant vm
-  		ln -fs /documentation "/var/www/$SITEURL"
-  	else
-  		# live server
-
-		if [ ! -d "/var/www/$SITEURL" ]; then
-			# create folder only if it does not exist
-			mkdir "/var/www/$SITEURL"
-		fi
-  		
+	if [ ! -d "/var/www/$SITEURL" ]; then
+		# create folder only if it does not exist
+		mkdir "/var/www/$SITEURL"
 	fi
+		
+
 
 }
 
@@ -97,5 +121,5 @@ configure_nginx()
 base_system
 configure_nginx_basic
 configure_nginx
-#jekyll_hook
+jekyll_hook
 
