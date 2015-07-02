@@ -2,7 +2,7 @@
 url: "http://majorsilence.github.io/kendo-ui-core"
 
 # Exclude files which should not be in the output
-exclude: [readme.md, Gemfile, Gemfile.lock,api_sort.rb]
+exclude: [readme.md, Gemfile, Gemfile.lock,api_sort.rb, bootstrap.sh, vagrantfile]
 navigation:
 ## List your directory names and order here, like this:
     "*excel":
