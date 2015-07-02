@@ -1,206 +1,71 @@
-# Kendo UI Core
+---
+title: Kendo UI Documentation Repo
+publish: false
+---
 
-## About Kendo UI Core
+# Kendo UI Public Documentation
 
-Kendo UI is everything you need to build sites and apps with HTML5 & JavaScript. Kendo UI Core is the free and open-source version of Kendo UI that provides access to the web's best UI widgets and key framework features, essential for developing great experiences for the web and mobile.
+Welcome to the GitHub repo for [Kendo UI](http://www.telerik.com/kendo-ui) documentation. This repository contains the source content — written in Markdown — that we use to power the Kendo UI Documentation at [docs.telerik.com/kendo-ui](http://docs.telerik.com/kendo-ui/). If you've arrived here wanting to search and peruse our docs, you'd be better served heading over to [docs.telerik.com/kendo-ui](http://docs.telerik.com/kendo-ui) where our content is prettified and searchable.
 
-[![Build Status](https://travis-ci.org/telerik/kendo-ui-core.svg?branch=master)](https://travis-ci.org/telerik/kendo-ui-core)
+We believe that the documentation for a product is at its best when the content is a collaboration between the builders and consumers of that product. As such, this documentation is both public, and open sourced under a MIT license (see below). That means you can clone this repository, read the docs off line, or even load the entire thing to an Apple Newton, if that's your thing.
 
-## Features of Kendo UI Core
+It also means that you can play a role in making our docs better for everyone, and if helping us make the Kendo UI docs better sounds interesting to you, read on.
 
-Kendo UI Core is a free and open-source subset of Kendo UI. The following table details the widgets and features available in Kendo UI Core, as well as the additional features available via a commercial Kendo UI license.
+## Contributing
 
-| Feature | Core | [Professional](http://www.telerik.com/kendo-ui) | UI for [MVC](http://www.telerik.com/aspnet-mvc)/[JSP](http://www.telerik.com/jsp-ui)/[PHP](http://www.telerik.com/php-ui) |
-| ------- | :----: | :--------: | :------------------: |
-| **Framework** |
-| DataSource | Yes | Yes | Yes |
-| MVVM | Yes | Yes | Yes |
-| SPA | Yes | Yes | Yes |
-| Effects | Yes | Yes | Yes |
-| Drag & Drop | Yes | Yes | Yes |
-| Validator | Yes | Yes | Yes |
-| **Widgets** |
-| AutoComplete | Yes | Yes | Yes |
-| Calendar | Yes | Yes | Yes |
-| ComboBox | Yes | Yes | Yes |
-| DatePicker | Yes | Yes | Yes |
-| DateTimePicker | Yes | Yes | Yes |
-| DropDownList | Yes | Yes | Yes |
-| ListView | Yes | Yes | Yes |
-| Menu | Yes | Yes | Yes |
-| NumericTextBox | Yes | Yes | Yes |
-| PanelBar | Yes | Yes | Yes |
-| Slider | Yes | Yes | Yes |
-| Splitter | Yes | Yes | Yes |
-| TabStrip | Yes | Yes | Yes |
-| TimePicker | Yes | Yes | Yes |
-| Tooltip | Yes | Yes | Yes |
-| Window | Yes | Yes | Yes |
-| Sortable | Yes | Yes | Yes |
-| Progress | Yes | Yes | Yes |
-| Button | Yes | Yes | Yes |
-| Color Picker | Yes | Yes | Yes |
-| ContextMenu | Yes | Yes | Yes |
-| Toolbar | Yes | Yes | Yes |
-| MultiSelect | Yes | Yes | Yes |
-| MaskedTextBox | Yes | Yes | Yes |
-| Notification | Yes | Yes | Yes |
-| Editor | No | Yes | Yes |
-| Grid | No | Yes | Yes |
-| PivotGrid | No | Yes | Yes |
-| Scheduler | No | Yes | Yes |
-| Gantt | No | Yes | Yes |
-| TreeView | No | Yes | Yes |
-| TreeList | No | Yes | Yes |
-| TreeMap | No | Yes | Yes |
-| Upload | No | Yes | Yes |
-| **Data Viz** |
-| Charts | No | Yes | Yes |
-| Gauges | No | Yes | Yes |
-| QR Code | No | Yes | Yes |
-| Bar Code | No | Yes | Yes |
-| **Mobile** |
-| Mobile Widgets | Yes | Yes | Yes |
-| Mobile Framework Features | Yes | Yes | Yes |
-| **Official Support** | No | Yes | Yes
+There are two ways you can contribute to the public Kendo UI documentation: either create an issue in this repository, or fork the repo, make the change and send us a pull request!
 
-## Compatibility and Requirements
+* **Create an issue** - If you find an issue with our docs that needs to be addressed, the best way to let us know about it is by [creating an issue in this repository](https://github.com/telerik/kendo-ui-core/issues?state=open). When creating an issue, provide a descriptive title, be as specific as possible and link to the document in question (If you can provide a link to the closest anchor to the issue, all the better). Here's an example:
 
-Kendo UI Core depends on the following libraries:
+        Title: api/DataViz/chart.md is missing an image
+        Description: Example 3 is missing an image right after the code sample. https://github.com/telerik/kendo-ui-core/issues?state=open
 
-- [jQuery](http://www.jquery.com) v1.9.1+
+> Note: When creating issues, please don't modify the assignee or milestone fields. Also, please create one issue per fix or change. "Bundled" entries will be deleted.
 
-Kendo UI Core has not been tested against any other versions of these libraries. You may find that versions other than these are compatible with Kendo UI Core. However, we make no claims to support those versions, and will not troubleshoot issues that arise when using those versions.
+* **Send us a pull request** - Creating an issue is great — and we certainly appreciate them — but what we really love are pull requests. So, if you find an issue in the docs, or even feel like creating new content, we'd be happy to have your contributions! If you're just getting started with open source, Git and GitHub, we suggest you first read up on [forking repositories](https://help.github.com/articles/fork-a-repo) and [sending pull requests](https://help.github.com/articles/using-pull-requests), both great articles from the GitHub bootcamp.
+
+    Once you've read these — or you've already memorized them — you're ready to contribute to the Kendo docs. Start by creating a local clone of our repo either using [GitHub for Windows](http://windows.github.com/), [GitHub for Mac](http://mac.github.com/) or your friendly command-line:
+
+        git clone git@github.com:telerik/kendo-ui-core.git
+
+    Then, open up the kendo-docs folder in your favorite text editor and contribute away! Of course, as you work with the docs, we do ask that you follow a couple of ground rules:
+
+    - The [documentation Wiki](https://github.com/telerik/kendo-ui-core/wiki) contains the latest authoring guidelines.
+    - Fixing grammar, punctuation and other general errors is always appreciated. So are changes that expand on key ideas or correct errors in logic phrasing or otherwise. If your ambitions are greater, however, and you want to add completely new content to the site — like a new tutorial on using Kendo UI with an Atari 2600, for instance — we suggest you contact a member of the team first (or enter an issue!) to vet your idea. [Burke Holland](http://twitter.com/burkeholland), [Todd Anglin](http://twitter.com/toddanglin) and [Brandon Satrom](http://twitter.com/brandonsatrom) would all be happy to hear your idea and offer advice.
+    - Each document in this repo contains a section of YAML Front Matter at the very top. This content, which looks like the text below, is used by our auto-import tool when content is processed for the live documentation site. Please don't edit the content in this section of a document.
+
+        ```yaml
+        ---
+        title: Grid
+        page_title: Configuration, methods and events of Kendo UI Grid
+        description: Code examples for Grid UI widget configuration, learn how to use methods and which events to set once the grid UI widget detail is initialized and expanded.
+        ---
+        ```
+
+    - When adding content or making changes, please use only standard Markdown syntax, and make to preview your additions or changes before sending us a pull request. You can use an online tool like [Dillinger.io](http://dillinger.io/) or [Marked](http://markedapp.com/) on OSX to view what your changes will look like when ported to HTML.
 
 
-## Building Kendo UI Core
+    Once you've made your changes, commit, pull, merge, push and [send us a pull request](https://help.github.com/articles/using-pull-requests)! We — and Kendo UI users everywhere — thank you for making our docs the best front-end library documentation on the web!
 
-There are two ways to get the source code for Kendo UI Core. You can either download a pre-built zip from [Telerik.com](http://www.telerik.com/kendo-ui/open-source-core), or build the source yourself using Grunt. The latter approach includes an option for building a distribution of Kendo UI Core that includes only the widgets and framework features required by your app.
+## Running locally
 
-### Installing Dependencies
+You can generate a static web site from the Kendo UI the documentation and browse it locally.
 
-In order to build Kendo UI Core, you need to have Node.js/npm latest and git 1.7 or later.
+1. Clone the repository `git clone git@github.com:telerik/kendo-ui-core.git`
+2. Run `bundle install` (you must have ruby and bundler installed beforehand)
+3. Run `jekyll serve` under /docs
+4. Open "http://localhost:4000/kendo-ui/introduction.html" in your browser
 
-For Windows you have to download and install [git](http://git-scm.com/downloads) and [Node.js](http://nodejs.org/download/).
+## License
 
-Mac OS users should install [Homebrew](http://mxcl.github.com/homebrew/). Once Homebrew is installed, run `brew install git` to install git,
-and `brew install node` to install Node.js.
+The Kendo UI Documentation is licensed under an MIT license. This license applies to the markdown (.md) files in this site **ONLY**, and does not convey, override or modify any existing licenses covering the runtime source and components of Kendo UI. For information about available licensed for the Kendo UI Library, visit our [license page](http://www.telerik.com/purchase/license-agreement/kendo-ui-complete).
 
-Linux/BSD users should use their appropriate package managers to install git and Node.js, or build them from source.
+### MIT License
 
-### How to build Kendo UI Core
+Copyright (c) 2012-2013 Telerik
 
-Clone a copy of the repository by running
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 
-```bash
-git clone https://github.com/telerik/kendo-ui-core.git
-```
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 
-Enter the repository directory
-
-```bash
-cd kendo-ui-core
-```
-
-Initialize the submodule repository
-
-```bash
-git submodule update --init
-```
-
-Run the build script:
-```bash
-npm run build
-```
-The minified version of the scripts and styles of Kendo UI Core will be put in the `dist/` subdirectory.
-
-If you want to create custom build or help with Kendo UI Core development, it would be better to install the [grunt command line interface](https://github.com/gruntjs/grunt-cli) as a global package:
-
-```
-[sudo] npm install -g grunt-cli
-```
-Make sure you have `grunt` installed by testing:
-
-```
-grunt --version
-```
-
-Now by running the `grunt` command in the Kendo UI Core directory, you can build the full version of Kendo UI Core. This works just like the `npm run build` command:
-```
-grunt build
-```
-
-There are several other tasks available:
-```
-grunt --help
-```
-
-### Building only what you need
-
-The grunt `custom` task will create a custom minified file - `dist/kendo.custom.min.js`, which includes only the specified components. The following command will include only the autocomplete and dropdownlist widgets:
-
-```
-grunt custom:autocomplete,dropdownlist
-```
-
-## Source Code and Downloads
-
-If you want to skip building Kendo UI Core yourself, head on over to [Telerik.com](http://www.telerik.com/kendo-ui/open-source-core) to grab the full source.
-
-## Using Kendo UI Core via the Kendo Static CDN
-
-You can also easily include Kendo UI Core in your site or application by using the Kendo CDN:
-
-```
-<link href="http://cdn.kendostatic.com/2014.2.716/styles/kendo.common.min.css" rel="stylesheet" />
-<link href="http://cdn.kendostatic.com/2014.2.716/styles/kendo.default.min.css" rel="stylesheet" />
-<script src="http://cdn.kendostatic.com/2014.2.716/js/jquery.min.js"></script>
-<script src="http://cdn.kendostatic.com/2014.2.716/js/kendo.ui.core.min.js"></script>
-```
-The main advantage of the CDN approach is that your users may be able to leverage a primed cache version of Kendo UI Core if they've visited other sites using the framework.
-
-## Documentation
-
-For complete Kendo UI Documentation, including Kendo UI Core, please visit http://docs.telerik.com/kendo-ui.
-
-## How to Contribute
-
-Kendo UI Core is free and open-source. We encourage and support an active, healthy community that accepts contributions from the public. We'd like you to be a part of that community.
-
-Before contributing to Kendo UI Core, please:
-
-1. Read and sign the [Kendo UI Core Contribution License Agreement](http://www.telerik.com/kendo-ui/cla), to confirm you've read and acknowledged the legal aspects of your contributions, and
-2. Read our [contribution guide](CONTRIBUTING.md), which houses all of the necessary info to:
-	- submit bugs,
-	- request new features, and
-	- walk you through the entire process of preparing your code for a Pull Request.
-
-## Getting Help
-
-**Tl;dr** - Use the [issues list](https://github.com/telerik/kendo-ui-core/issues) of this repo for bugs, [Stack Overflow](http://stackoverflow.com/questions/tagged/kendo-ui) or the [Kendo UI Premium Forums](http://www.telerik.com/forums/kendo-ui-framework) for help and [User Voice](http://kendoui-feedback.telerik.com/forums/127393-kendo-ui-feedback) for feature requests. Misfiled items will be closed.
-
-As a fully-open source project, Kendo UI Core is a primarily community-supported project, As such, you are encouraged to use forums like Stack Overflow to post questions, and the issues list of this repo to report bugs.
-
-The Kendo UI team does *not* provide formal support for Kendo UI Core, except to those customers who have purchased a [commercial license for Kendo UI](http://www.telerik.com/kendo-ui) (Professional, UI for MVC, etc.) or a support-only package from Telerik.com. Please do not create support requests for this project in the issues list for this repo, as these will be immediately closed. You'll be directed to post your question on a community forum.
-
-## Release Notes
-
-For change logs and release notes, see the [online release notes at Telerik.com](http://www.telerik.com/support/whats-new/kendo-ui/release-history).
-
-## License Information
-
-This project has been released under the [Apache License, version 2.0](http://www.apache.org/licenses/LICENSE-2.0.html), the text of which is included below. This license applies ONLY to the source of this repository and does not extend to any other Kendo UI distribution or variant, or any other 3rd party libraries used in a repository. For licensing information about Kendo UI, see the [License Agreements page](https://www.kendoui.com/purchase/license-agreement.aspx) at [KendoUI.com](http://www.kendoui.com).
-
-> Copyright © 2014 Telerik
-
-> Licensed under the Apache License, Version 2.0 (the "License");
-   you may not use this file except in compliance with the License.
-   You may obtain a copy of the License at
-
-> [http://www.apache.org/licenses/LICENSE-2.0](http://www.apache.org/licenses/LICENSE-2.0)
-
->  Unless required by applicable law or agreed to in writing, software
-   distributed under the License is distributed on an "AS IS" BASIS,
-   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-   See the License for the specific language governing permissions and
-   limitations under the License.
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
