@@ -273,7 +273,7 @@ navigation:
         title: "Geometry"
 
 ## The application virtual path
-baseurl: /kendo-ui
+baseurl: 
 
 ## The Kendo UI version used
 cdnVersion: "2015.2.624"
@@ -358,3 +358,6 @@ assets:
 ## Do not edit below this line
 safe: false
 markdown: kramdown
+kramdown:
+  input: GFM
+  hard_wrap: false
