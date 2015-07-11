@@ -6,15 +6,21 @@ set -u # exit on using unset variable
 
 apt-get update
 apt-get upgrade -y
-SITEURL="documentation.townsuite.com"
+SITEURL="site.majorsilence.com"
 
 function base_system()
 {
 	apt-get install ruby2.0 ruby2.0-dev make build-essential npm nodejs git nginx zlib1g-dev -y
 
-	echo "start gem install.  This will take several minutes."
-	yes | gem2.0 install jekyll github-pages rdiscount json jekyll-assets jekyll-sitemap --no-rdoc --no-ri --verbose
-	echo "end gem install"
+	yes | gem2.0 install bundler --no-rdoc --no-ri --verbose
+
+	if [ ! -d "/site" ]; then
+		# local
+		bundle install
+	else
+		# running in vagrant
+		bundle install --gemfile="/site/Gemfile"
+	fi
 }
 
 function jekyll_hook()
@@ -56,11 +62,12 @@ function jekyll_hook()
 
 
 	sed -i "s/site=\"\/usr\/share\/nginx\/html\/\$repo\"/site=\"\/var\/www\/$SITEURL\"/g" /root/jekyll-hook/scripts/publish.sh
-	forever start jekyll-hook.js
+	forever-service install jekyll-hook.js -s jekyll-hook.js --start
 
 
-    # cp -R /documentation /root/tmp/documentation
-	# jekyll build --source /root/tmp/documentation --destination /var/www/documentation.majorsilence.com
+
+    # cp -R /site /root/tmp/site
+	# jekyll build --source /root/tmp/site --destination /var/www/site.majorsilence.com
 }
 
 
@@ -75,7 +82,7 @@ configure_nginx_basic()
 		# create folder only if it does not exist
 		mkdir "/var/www/$SITEURL"
 	fi
-		
+
 
 
 }
@@ -85,7 +92,7 @@ configure_nginx_basic()
 configure_nginx()
 {
 
-	echo "configure_nginx start" 
+	echo "configure_nginx start"
 
 	# clear default site contents
 	# cp /etc/nginx/sites-enabled/default /etc/nginx/sites-enabled/default-backup
@@ -98,7 +105,7 @@ configure_nginx()
 	echo "	root /var/www/$SITEURL/;" >> /etc/nginx/sites-enabled/default
 	echo "	index index.html index.htm;" >> /etc/nginx/sites-enabled/default
 	echo "	server_name $SITEURL www.$SITEURL;" >> /etc/nginx/sites-enabled/default
-	
+
 	# The line below will auto redirect to https
 	#echo "	rewrite        ^ https://\$server_name\$request_uri? permanent;" >> /etc/nginx/sites-enabled/default
 	echo "	location / {" >> /etc/nginx/sites-enabled/default
@@ -118,7 +125,7 @@ configure_nginx()
 
 	service nginx reload
 
-	echo "configure_nginx finished" 
+	echo "configure_nginx finished"
 }
 
 
@@ -128,11 +135,6 @@ configurefirewall()
 	ufw allow 80/tcp
 	ufw allow 8080/tcp
 	yes | ufw allow ssh
-
-
-	iptables -A INPUT -i eth0 -p tcp --dport 80 -j ACCEPT
-	iptables -A INPUT -i eth0 -p tcp --dport 4000 -j ACCEPT
-	iptables -A PREROUTING -t nat -i eth0 -p tcp --dport 80 -j REDIRECT --to-port 4000
 
 	# requires iptables-persistent is installed
 	# See http://www.thomas-krenn.com/en/wiki/Saving_Iptables_Firewall_Rules_Permanently
@@ -155,10 +157,22 @@ configurefail2ban()
 	service fail2ban restart
 }
 
+generate_site_when_running_in_vagrant()
+{
+
+	if [ -d "/site" ]; then
+		# vagrant
+		cp -R /site /root/tmp/site
+		jekyll build --source /root/tmp/site --destination "/var/www/$SITEURL"
+
+	fi
+
+}
+
 configurefirewall
 configurefail2ban
 base_system
 configure_nginx_basic
 configure_nginx
 jekyll_hook
-
+generate_site_when_running_in_vagrant
